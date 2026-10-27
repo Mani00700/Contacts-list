@@ -1,11 +1,11 @@
-"""Contact Book
+#Contact Book
 
-A small command-line app for managing contacts.
-Contacts are saved to a JSON file (contacts.json) next to this script,
-so they are still there the next time you run it.
+#A small command-line app for managing contacts.
+#Contacts are saved to a JSON file (contacts.json) next to this script,
+#so they are still there the next time you run it.
 
-Run it with:  python contacts.py
-"""
+#Run it with:  python contacts.py
+
 
 import json
 import os
@@ -31,10 +31,10 @@ MENU = """
 # --- Saving and loading -----------------------------------------------------
 
 def load_contacts():
-    """Read the contact list from the JSON file.
+    #Read the contact list from the JSON file.
 
-    Returns an empty list if the file doesn't exist yet or is corrupted.
-    """
+    #Returns an empty list if the file doesn't exist yet or is corrupted.
+    
     if not os.path.exists(DATA_FILE):
         return []
     try:
@@ -46,7 +46,7 @@ def load_contacts():
 
 
 def save_contacts(contacts):
-    """Write the whole contact list to the JSON file."""
+    #Write the whole contact list to the JSON file.
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         # indent=2 keeps the file readable; ensure_ascii=False keeps
         # characters like ö and é instead of turning them into \u codes.
@@ -56,7 +56,7 @@ def save_contacts(contacts):
 # --- Menu actions -----------------------------------------------------------
 
 def add_contact():
-    """Ask for a name and phone number, then save the new contact."""
+    #Ask for a name and phone number, then save the new contact.
     name = input("Name: ").strip()
     phone = input("Phone: ").strip()
 
@@ -85,7 +85,7 @@ def view_contacts():
 
 
 def delete_contact():
-    """Remove a contact chosen by its number in the list."""
+    #Remove a contact chosen by its number in the list.
     contacts = load_contacts()
 
     if not contacts:
@@ -113,7 +113,7 @@ def delete_contact():
 # --- Main program -----------------------------------------------------------
 
 def main():
-    """Show the menu again and again until the user chooses to quit."""
+    #Show the menu again and again until the user chooses to quit.
     while True:
         print(MENU)
         choice = input("Choose an option (1-4): ").strip()
